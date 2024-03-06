@@ -4,8 +4,6 @@ const styled = { createGlobalStyle };
 
 const Typography = styled.createGlobalStyle`
   html {
-    font-family: "Mulish", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     color: var(--black-100);
   }
 
@@ -28,6 +26,9 @@ const Typography = styled.createGlobalStyle`
   h5 {
     font-size: var(--12px);
   }
+  span {
+    font-size: var(--16px);
+  }
 
   p {
     font-size: var(--12px);
@@ -36,6 +37,8 @@ const Typography = styled.createGlobalStyle`
   h1,
   h2 {
     font-weight: bold;
+    font-family: "Mulish";
+    line-height: 17.57px;
   }
 
   span,
@@ -43,7 +46,8 @@ const Typography = styled.createGlobalStyle`
   h4,
   h5,
   h6 {
-    font-weight: normal;
+    font-weight: 500;
+    font-family: "Mulish";
   }
 
   @media (max-width: 740px) {
