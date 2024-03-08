@@ -3,6 +3,7 @@ import { useState, useRef, useEffect, useCallback, MouseEvent } from "react";
 
 interface ButtonProps {
   title: string;
+  width?: string;
   onClick?: () => void;
   inactive?: boolean;
 }
@@ -10,6 +11,7 @@ interface ButtonProps {
 interface StyledButtonProps {
   $hoverposition: { x: number; y: number };
   $inactive?: boolean;
+  width?: string;
 }
 
 interface HoverPosition {
@@ -19,12 +21,13 @@ interface HoverPosition {
 
 const StyledButton = styled.button<StyledButtonProps>`
   position: relative;
+  width: ${(props) => props.width};
   background-color: ${(props) =>
     props.$inactive ? `var(--sand-100)` : `var(--yellow-100)`};
   overflow: hidden;
   cursor: ${(props) => (props.$inactive ? "wait" : "pointer")};
   border-radius: 8px;
-  padding: 8px 20px 8px 20px;
+  padding: 8px 16px 8px 16px;
 
   span {
     color: black;
@@ -42,7 +45,7 @@ const StyledButton = styled.button<StyledButtonProps>`
     height: 400%;
     background: radial-gradient(
       circle closest-side,
-      #ffad4d 5%,
+      #ffad4d 10%,
       transparent 100%
     );
     opacity: 0.6;
@@ -50,7 +53,12 @@ const StyledButton = styled.button<StyledButtonProps>`
   }
 `;
 
-const Button = ({ title, inactive, onClick }: ButtonProps): JSX.Element => {
+const Button = ({
+  title,
+  inactive,
+  width,
+  onClick,
+}: ButtonProps): JSX.Element => {
   const [hoverPosition, setHoverPosition] = useState<HoverPosition>({
     x: 0,
     y: 0,
@@ -88,6 +96,7 @@ const Button = ({ title, inactive, onClick }: ButtonProps): JSX.Element => {
       $hoverposition={hoverPosition}
       onClick={onClick}
       $inactive={inactive}
+      width={width}
     >
       <span>{title}</span>
     </StyledButton>

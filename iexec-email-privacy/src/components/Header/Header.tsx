@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { Logo } from "../../utils/lib/icon";
 import Button from "../../ui-components/Button/Button";
+import { useUser } from "../../data-access-contexts/UserContext";
+import ConnectedButton from "../../ui-components/ConnectedButton/ConnectedButton";
 
 const StyledHeader = styled.div`
   background-color: var(--black-50);
@@ -23,13 +25,20 @@ const LogoWrapper = styled.div`
 `;
 
 const Header = (): JSX.Element => {
+  const { accountId, isConnected } = useUser();
+
   return (
     <StyledHeader>
       <LogoWrapper>
         <Logo />
         <span>Secret Email</span>
       </LogoWrapper>
-      <Button title="Connect Wallet" inactive={true} />
+      {isConnected ? (
+        <ConnectedButton accountId={accountId} />
+      ) : (
+        <Button title={"Connect Wallet"} />
+      )}
+      {/* Affichez la valeur d'accountId dans le bouton */}
     </StyledHeader>
   );
 };

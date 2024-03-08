@@ -11,7 +11,9 @@ const styled = { createGlobalStyle };
 const GlobalStyles = styled.createGlobalStyle`
   :root {
     --white-100: ${COLORS.WHITE[100]};
+    --white-6: ${COLORS.WHITE[6]};
     --yellow-100: ${COLORS.YELLOW[100]};
+    --peach-100: ${COLORS.PEACH[100]};
     --pink-100: ${COLORS.PINK[100]};
     --violet-100: ${COLORS.VIOLET[100]};
     --sand-100: ${COLORS.SAND[100]};
@@ -31,6 +33,7 @@ const GlobalStyles = styled.createGlobalStyle`
   body {
     background-image: url(${background});
     background-size: cover;
+    height: 100vh;
   }
 
   button {

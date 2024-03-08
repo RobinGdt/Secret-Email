@@ -1,8 +1,12 @@
 export const COLORS = {
   WHITE: {
     100: "#FFFFFF",
+    6: "rgb(255, 255, 255, 0.06)",
   },
   YELLOW: {
+    100: "#FCD15A",
+  },
+  PEACH: {
     100: "#FCD15A",
   },
   PINK: {

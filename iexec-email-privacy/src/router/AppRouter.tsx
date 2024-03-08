@@ -1,9 +1,12 @@
-import { BrowserRouter, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Authorize from "../components/Authorize/Authorize";
 
 const AppRouter = (): JSX.Element => {
   return (
     <BrowserRouter basename="/">
-      <Routes></Routes>
+      <Routes>
+        <Route path="/authorize" element={<Authorize />} />
+      </Routes>
     </BrowserRouter>
   );
 };

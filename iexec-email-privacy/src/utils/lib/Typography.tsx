@@ -19,7 +19,8 @@ const Typography = styled.createGlobalStyle`
     font-size: var(--14px);
   }
 
-  h4 {
+  h4,
+  label {
     font-size: var(--14px);
   }
 
@@ -48,6 +49,7 @@ const Typography = styled.createGlobalStyle`
   h6 {
     font-weight: 500;
     font-family: "Mulish";
+    line-height: 20px;
   }
 
   @media (max-width: 740px) {
