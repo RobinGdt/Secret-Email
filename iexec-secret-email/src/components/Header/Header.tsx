@@ -10,7 +10,7 @@ const StyledHeader = styled.div`
   justify-content: space-between;
   border-bottom: 1px solid var(--black-40);
   padding: 16px 40px 16px 40px;
-  margin-bottom: 100px;
+  margin-bottom: 30px;
   top: 0;
 `;
 
