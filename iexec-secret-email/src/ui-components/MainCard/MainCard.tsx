@@ -144,12 +144,10 @@ const MainCard = () => {
 
   const changeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
-    console.log(event.target.value);
   };
 
   const changeName = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
-    console.log(event.target.value);
   };
 
   useEffect(() => {
@@ -245,7 +243,6 @@ const MainCard = () => {
                   value={selectedEmail}
                   onChange={(e) => {
                     setSelectedEmail(e.target.value);
-                    console.log("selected email: ", e.target.value);
                   }}
                 >
                   <option value="">Sélectionnez un e-mail</option>

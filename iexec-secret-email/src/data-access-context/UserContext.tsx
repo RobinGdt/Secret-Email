@@ -81,26 +81,6 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
     }
   };
 
-  useEffect(() => {
-    const fetchProtectedEmails = async () => {
-      try {
-        const result = await dataProtector.fetchProtectedData({
-          owner: accountId,
-        });
-
-        const emails = result.filter(
-          (data) => data.schema && data.schema.email === "string"
-        );
-        console.log(emails);
-        setProtectedEmails(emails as never);
-      } catch (error) {
-        console.error("Error Fetching Protected Emails", error);
-      }
-    };
-
-    fetchProtectedEmails();
-  }, [accountId]);
-
   // FETCH ACCOUNTS
   const fetchAccounts = useCallback(async () => {
     try {
@@ -148,6 +128,12 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
   const protectedDataSubmit = useCallback(
     async (email: string, name: string) => {
       const data: DataSchema = { email: email } as DataSchema;
+
+      if (!name) {
+        setError("Name field cannot be empty.");
+        return;
+      }
+
       try {
         setIsProtectRequestPending(true);
         const protectedDataAddress: ProtectedDataWithSecretProps =
@@ -155,16 +141,28 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
             data,
             name,
           });
+        const result = await dataProtector.fetchProtectedData({
+          owner: accountId,
+        });
+
+        const emails = result.filter(
+          (data) => data.schema && data.schema.email === "string"
+        );
         setIsProtectRequestPending(false);
         setActiveStep(3);
+
+        setProtectedEmails(emails as never);
+
         setAddress(protectedDataAddress.address);
-        console.log(address);
+
+        console.log(emails);
       } catch (error) {
         setIsProtectRequestPending(false);
+        console.error("Error Fetching Protected Emails", error);
         setError((error as Error).message);
       }
     },
-    [address]
+    [accountId]
   );
 
   // LOG OUT
