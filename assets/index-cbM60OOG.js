@@ -354,7 +354,7 @@ ${c}
 `,Card=ut$1.div`
   border-radius: 20px;
   position: relative;
-  width: calc(100% - 48px);
+  max-width: 100%;
   gap: 4px;
   padding: 24px;
   display: flex;
@@ -371,9 +371,12 @@ ${c}
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  height: 80%;
   color: var(--white-100);
-`,Authorize=()=>jsxRuntimeExports.jsxs(StyledAuthorize,{children:[jsxRuntimeExports.jsx("h1",{children:"Secret Email Service"}),jsxRuntimeExports.jsx("p",{children:"iExec creates the technologies for individuals and organizations to create, protect and develop their digital estate."}),jsxRuntimeExports.jsx(MainCard,{})]}),AppRouter=()=>jsxRuntimeExports.jsx(HashRouter,{children:jsxRuntimeExports.jsx(Routes,{children:jsxRuntimeExports.jsx(Route,{path:"/authorize",element:jsxRuntimeExports.jsx(Authorize,{})})})});function App(){return jsxRuntimeExports.jsxs("div",{className:"App",children:[jsxRuntimeExports.jsx(Header,{}),jsxRuntimeExports.jsx(AppRouter,{})]})}const styled$1={createGlobalStyle:dt},Typography=styled$1.createGlobalStyle`
+`,TitleContainer=ut$1.div`
+  text-align: center;
+`,Authorize=()=>jsxRuntimeExports.jsxs(StyledAuthorize,{children:[jsxRuntimeExports.jsxs(TitleContainer,{children:[jsxRuntimeExports.jsx("h1",{children:"Secret Email Service"}),jsxRuntimeExports.jsx("p",{children:"iExec creates the technologies for individuals and organizations to create, protect and develop their digital estate."})]}),jsxRuntimeExports.jsx(MainCard,{})]}),AppRouter=()=>jsxRuntimeExports.jsx(HashRouter,{children:jsxRuntimeExports.jsx(Routes,{children:jsxRuntimeExports.jsx(Route,{path:"/authorize",element:jsxRuntimeExports.jsx(Authorize,{})})})});function App(){return jsxRuntimeExports.jsxs("div",{className:"App",children:[jsxRuntimeExports.jsx(Header,{}),jsxRuntimeExports.jsx(AppRouter,{})]})}const styled$1={createGlobalStyle:dt},Typography=styled$1.createGlobalStyle`
   html {
     color: var(--black-100);
   }
@@ -472,7 +475,6 @@ html{
     background-size: cover;
 }
   body {
-
     width: 100vw;
   }
 
