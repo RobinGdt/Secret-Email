@@ -216,7 +216,7 @@ ${c}
   justify-content: space-between;
   border-bottom: 1px solid var(--black-40);
   padding: 16px 40px 16px 40px;
-  /* position: fixed; */
+  margin-bottom: 100px;
   top: 0;
 `,LogoWrapper=ut$1.div`
   display: flex;
@@ -369,14 +369,15 @@ ${c}
   }
 `,MainCard=()=>{const[a,e]=reactExports.useState(!1),[o,c]=reactExports.useState(!1),{isRequestPending:d,isProtectRequestPending:h,activeStep:et,error:tt,selectedEmail:ot,protectedEmails:ft,setSelectedEmail:ht,setActiveStep:yt,fetchAccounts:gt,protectedDataSubmit:wt,grantAccess:bt}=useUser(),xt=useLocation(),{search:Et}=xt,$t=new URLSearchParams(Et).get("user"),[At,kt]=reactExports.useState(""),[It,Dt]=reactExports.useState(""),Mt=Wt=>{Dt(Wt.target.value)},zt=Wt=>{kt(Wt.target.value)};return reactExports.useEffect(()=>{$t&&e(isValidEthereumAddressFormat($t))},[$t]),jsxRuntimeExports.jsxs(StyledMainCard,{children:[jsxRuntimeExports.jsxs(GrandAccessContainer,{children:[jsxRuntimeExports.jsx("h2",{children:"Grant Access"}),jsxRuntimeExports.jsx("span",{children:a?$t:"Adresse invalide"}),jsxRuntimeExports.jsx("p",{children:"would like to get access to you, using iExec secured email service"})]}),jsxRuntimeExports.jsxs(StepWrapper,{children:[et===1&&jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment,{children:[jsxRuntimeExports.jsx("p",{children:"Connect your wallet to continue."}),jsxRuntimeExports.jsx(Button,{title:d?"Initializing...":"Connect Wallet",width:"100%",onClick:gt,inactive:d})]}),et===2&&jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment,{children:[o?jsxRuntimeExports.jsx("p",{children:"Protect your address with iExec. Your email address stays secret, only your name will be shared with the organization."}):jsxRuntimeExports.jsx("p",{children:"You have no protected address yet."}),o?jsxRuntimeExports.jsxs(Form,{onSubmit:Wt=>{Wt.preventDefault(),wt(It,At)},children:[jsxRuntimeExports.jsx(Input,{name:"email",type:"email",label:"Email ( private ) ",placeholder:"john@Doe.com",onChange:Mt}),jsxRuntimeExports.jsx(Input,{name:"name",type:"text",label:"Name ( public ) ",placeholder:"john Doe",onChange:zt}),jsxRuntimeExports.jsx(Button,{title:h?"Initializing...":"Protect my Address",type:"submit",inactive:h,width:"100%"}),tt&&jsxRuntimeExports.jsx("p",{style:{color:"red"},children:tt})]}):jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment,{children:jsxRuntimeExports.jsx(Button,{title:"Protect my Address",onClick:()=>c(!0),width:"100%"})})]}),et===3&&jsxRuntimeExports.jsxs(ThirdStepWrapper,{children:[jsxRuntimeExports.jsxs(CardWrapper,{children:[jsxRuntimeExports.jsxs(Card,{children:[jsxRuntimeExports.jsx("span",{children:jsxRuntimeExports.jsx("strong",{children:At})}),jsxRuntimeExports.jsx(Select,{value:ot,data:ft,onChange:Wt=>{ht(Wt.target.value)},title:"**Select protected email**"})]}),jsxRuntimeExports.jsx(AddNewWrapper,{children:jsxRuntimeExports.jsxs("button",{onClick:()=>yt(2),children:[jsxRuntimeExports.jsx(Add,{})," Add new"]})})]}),jsxRuntimeExports.jsxs(ButtonWrapper,{children:[jsxRuntimeExports.jsx(Button,{width:"100%",title:"Cancel",outlined:!0,onClick:()=>yt(1)}),jsxRuntimeExports.jsx(Button,{width:"100%",title:"Share Access",onClick:()=>bt($t)})]})]})]})]})},StyledAuthorize=ut$1.div`
   display: flex;
+  position: relative;
+  /* top: 160px; */
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  height: 80%;
+  gap: 70px;
   color: var(--white-100);
-`,TitleContainer=ut$1.div`
+`,TitleWrapper=ut$1.div`
   text-align: center;
-`,Authorize=()=>jsxRuntimeExports.jsxs(StyledAuthorize,{children:[jsxRuntimeExports.jsxs(TitleContainer,{children:[jsxRuntimeExports.jsx("h1",{children:"Secret Email Service"}),jsxRuntimeExports.jsx("p",{children:"iExec creates the technologies for individuals and organizations to create, protect and develop their digital estate."})]}),jsxRuntimeExports.jsx(MainCard,{})]}),AppRouter=()=>jsxRuntimeExports.jsx(HashRouter,{children:jsxRuntimeExports.jsx(Routes,{children:jsxRuntimeExports.jsx(Route,{path:"/authorize",element:jsxRuntimeExports.jsx(Authorize,{})})})});function App(){return jsxRuntimeExports.jsxs("div",{className:"App",children:[jsxRuntimeExports.jsx(Header,{}),jsxRuntimeExports.jsx(AppRouter,{})]})}const styled$1={createGlobalStyle:dt},Typography=styled$1.createGlobalStyle`
+`,Authorize=()=>jsxRuntimeExports.jsxs(StyledAuthorize,{children:[jsxRuntimeExports.jsxs(TitleWrapper,{children:[jsxRuntimeExports.jsx("h1",{children:"Secret Email Service"}),jsxRuntimeExports.jsx("p",{children:"iExec creates the technologies for individuals and organizations to create, protect and develop their digital estate."})]}),jsxRuntimeExports.jsx(MainCard,{})]}),AppRouter=()=>jsxRuntimeExports.jsx(HashRouter,{children:jsxRuntimeExports.jsx(Routes,{children:jsxRuntimeExports.jsx(Route,{path:"/authorize",element:jsxRuntimeExports.jsx(Authorize,{})})})});function App(){return jsxRuntimeExports.jsxs("div",{className:"App",children:[jsxRuntimeExports.jsx(Header,{}),jsxRuntimeExports.jsx(AppRouter,{})]})}const styled$1={createGlobalStyle:dt},Typography=styled$1.createGlobalStyle`
   html {
     color: var(--black-100);
   }
@@ -476,6 +477,7 @@ html{
 }
   body {
     width: 100vw;
+
   }
 
   button {
