@@ -3,7 +3,7 @@ import Authorize from "../components/Authorize/Authorize";
 
 const AppRouter = (): JSX.Element => {
   return (
-    <BrowserRouter basename="/iExec-Technical-Test">
+    <BrowserRouter basename="/iExec-Technical-Test/authorize">
       <Routes>
         <Route path="/authorize" element={<Authorize />} />
       </Routes>
