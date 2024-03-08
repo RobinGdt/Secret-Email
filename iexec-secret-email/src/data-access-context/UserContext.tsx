@@ -116,6 +116,23 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
         method: "eth_requestAccounts",
       });
 
+      await window.ethereum.request({
+        method: "wallet_addEthereumChain",
+        params: [
+          {
+            chainId: "0x86",
+            chainName: "iExec Sidechain",
+            nativeCurrency: {
+              name: "xRLC",
+              symbol: "xRLC",
+              decimals: 18,
+            },
+            rpcUrls: ["https://bellecour.iex.ec"],
+            blockExplorerUrls: ["https://blockscout-bellecour.iex.ec"],
+          },
+        ],
+      });
+
       setAccountId(accounts[0]);
       localStorage.setItem("accountId", accounts[0]);
 
