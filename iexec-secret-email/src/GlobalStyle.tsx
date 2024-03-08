@@ -31,6 +31,7 @@ html{
 }
   body {
     width: 100vw;
+
   }
 
   button {

@@ -3,27 +3,28 @@ import MainCard from "../../ui-components/MainCard/MainCard";
 
 const StyledAuthorize = styled.div`
   display: flex;
+  position: relative;
+  /* top: 160px; */
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  height: 80%;
+  gap: 70px;
   color: var(--white-100);
 `;
 
-const TitleContainer = styled.div`
+const TitleWrapper = styled.div`
   text-align: center;
 `;
 
 const Authorize = (): JSX.Element => {
   return (
     <StyledAuthorize>
-      <TitleContainer>
+      <TitleWrapper>
         <h1>Secret Email Service</h1>
         <p>
           iExec creates the technologies for individuals and organizations to
           create, protect and develop their digital estate.
         </p>
-      </TitleContainer>
+      </TitleWrapper>
       <MainCard />
     </StyledAuthorize>
   );
