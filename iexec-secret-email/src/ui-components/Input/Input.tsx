@@ -20,7 +20,7 @@ const StyledInput = styled.input`
   padding: 12px 16px 12px 16px;
   border-radius: 8px;
   font-family: "Mulish";
-  width: 100%;
+  max-width: 100%;
   border: none;
   background-color: #1d1d24;
   color: var(--white-100);

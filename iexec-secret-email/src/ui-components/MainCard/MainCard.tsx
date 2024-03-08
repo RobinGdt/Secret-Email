@@ -15,6 +15,7 @@ import {
   MainCardGradientCode,
   createBackgroundStyles,
 } from "../../utils/CreateBorderGradient";
+import Select from "../Select/Select";
 
 declare global {
   interface Window {
@@ -239,19 +240,14 @@ const MainCard = () => {
                 <span>
                   <strong>{name}</strong>
                 </span>
-                <select
+                <Select
                   value={selectedEmail}
-                  onChange={(e) => {
+                  data={protectedEmails}
+                  onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
                     setSelectedEmail(e.target.value);
                   }}
-                >
-                  <option value="">Sélectionnez un e-mail</option>
-                  {protectedEmails.map((emailObj, index) => (
-                    <option key={index} value={emailObj.address}>
-                      {emailObj.name}
-                    </option>
-                  ))}
-                </select>
+                  title="**Select protected email**"
+                />
               </Card>
               <AddNewWrapper>
                 <button onClick={() => setActiveStep(2)}>

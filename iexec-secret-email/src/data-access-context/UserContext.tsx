@@ -20,8 +20,8 @@ interface UserContextProps {
   isConnected: boolean;
   activeStep: number;
   error: string;
-  address: string;
   isGrantingAccess: boolean;
+  protectedDataAddress: { address: string };
   protectedEmails: {
     name?: string;
     address: string;
@@ -48,7 +48,9 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [userAddress, setUserAddress] = useState<string | null>(null);
-  const [address, setAddress] = useState("");
+  const [protectedDataAddress, setProtectedDataAddress] = useState<{
+    address: string;
+  }>({ address: "" });
   const [isProtectRequestPending, setIsProtectRequestPending] = useState(false);
   const [accountId, setAccountId] = useState<string | undefined>(undefined);
   const [isRequestPending, setIsRequestPending] = useState(false);
@@ -68,7 +70,7 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
     setIsGrantingAccess(true);
     try {
       await dataProtector.grantAccess({
-        protectedData: accountId as string,
+        protectedData: protectedDataAddress.address,
         authorizedUser: userAddress as string,
         authorizedApp: "web3mail.apps.iexec.eth",
         numberOfAccess: 1,
@@ -129,8 +131,8 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
     async (email: string, name: string) => {
       const data: DataSchema = { email: email } as DataSchema;
 
-      if (!name) {
-        setError("Name field cannot be empty.");
+      if (!name || !email) {
+        setError("Name and Emails fields cannot be empty.");
         return;
       }
 
@@ -153,7 +155,7 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
 
         setProtectedEmails(emails as never);
 
-        setAddress(protectedDataAddress.address);
+        setProtectedDataAddress(protectedDataAddress);
 
         console.log(emails);
       } catch (error) {
@@ -193,11 +195,11 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
         setAccountId,
         isRequestPending,
         isProtectRequestPending,
+        protectedDataAddress,
         fetchAccounts,
         isConnected,
         activeStep,
         error,
-        address,
         isGrantingAccess,
         protectedEmails,
         selectedEmail,

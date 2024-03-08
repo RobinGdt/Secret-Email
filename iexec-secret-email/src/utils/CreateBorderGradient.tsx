@@ -16,10 +16,10 @@ export const createBackgroundStyles = (
 
 export const MainCardGradientCode = "linear-gradient(#fff 0 0)";
 export const MainCardBackgroundGradient =
-  "linear-gradient(45deg, #82828e, #303038)";
+  "linear-gradient(90deg, #82828e, #303038)";
 export const MainCardContentBox = "linear-gradient(#fff 0 0)";
 
 export const CardGradientCode = "linear-gradient(#fff 0 0)";
 export const CardBackgroundGradient =
-  "linear-gradient(to right bottom,#FCD15A 20%,#CE2C68 60%,#3F0D3F 40%,#1D1D24 0%);";
+  "linear-gradient(to left top,#FCD15A 20%,#CE2C68 30%,#3F0D3F 60%,#1D1D24 0%);";
 export const CardContentBox = "linear-gradient(#fff 0 0)";
