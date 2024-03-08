@@ -94,6 +94,7 @@ const Button = ({
     if (buttonRef.current) {
       buttonRef.current.addEventListener("mousemove", handleMouseMove as never);
       return () => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         buttonRef.current?.removeEventListener(
           "mousemove",
           handleMouseMove as never
