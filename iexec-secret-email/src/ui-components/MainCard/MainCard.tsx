@@ -98,7 +98,7 @@ const CardWrapper = styled.div`
 const Card = styled.div`
   border-radius: 20px;
   position: relative;
-  width: calc(100% - 48px);
+  max-width: 100%;
   gap: 4px;
   padding: 24px;
   display: flex;
@@ -140,9 +140,11 @@ const MainCard = () => {
   const params = new URLSearchParams(search);
   const userAddress = params.get("user");
 
+  //form-data
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
+  //change-form-data-functions
   const changeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   };
@@ -151,6 +153,7 @@ const MainCard = () => {
     setName(event.target.value);
   };
 
+  //fetch-user-address
   useEffect(() => {
     if (userAddress) {
       setIsValidAddress(isValidEthereumAddressFormat(userAddress));

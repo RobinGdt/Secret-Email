@@ -30,7 +30,6 @@ html{
     background-size: cover;
 }
   body {
-
     width: 100vw;
   }
 
