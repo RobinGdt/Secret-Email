@@ -16,19 +16,17 @@ import {
   createBackgroundStyles,
 } from "../../utils/CreateBorderGradient";
 import Select from "../Select/Select";
-
 declare global {
   interface Window {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ethereum?: any;
   }
 }
-
 const StyledMainCard = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  max-width: 400px;
+  max-width: 320px;
   padding: 40px;
   background-color: var(--white-6);
   border-radius: 20px;
@@ -50,7 +48,7 @@ const StepWrapper = styled.div`
 
 const ButtonWrapper = styled.div`
   display: flex;
-  gap: 32px;
+  gap: 16px;
 `;
 
 const Form = styled.form`
@@ -65,20 +63,27 @@ const Form = styled.form`
 
 const GrandAccessContainer = styled.div`
   span {
+    word-wrap: break-word;
     color: var(--peach-100);
     text-decoration: underline;
     cursor: pointer;
+    font-weight: 400px;
   }
 `;
 
 const AddNewWrapper = styled.div`
   display: flex;
   button {
+    gap: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: transparent;
     padding: 0;
     color: var(--yellow-100);
     font-weight: 400;
     font-size: var(--12px);
+    margin: 0;
     text-decoration: underline;
   }
 `;
@@ -103,6 +108,7 @@ const Card = styled.div`
   padding: 24px;
   display: flex;
   flex-direction: column;
+  border: 1px solid var(--black-40);
 
   select {
     z-index: 10;
@@ -112,7 +118,8 @@ const Card = styled.div`
     ${createBackgroundStyles(
       CardGradientCode,
       CardBackgroundGradient,
-      CardContentBox
+      CardContentBox,
+      true
     )}
   }
 `;
@@ -164,9 +171,9 @@ const MainCard = () => {
     <StyledMainCard>
       <GrandAccessContainer>
         <h2>Grant Access</h2>
-        <span>{isValidAddress ? userAddress : "Adresse invalide"}</span>
         <p>
-          would like to get access to you, using iExec secured email service
+          <span>{isValidAddress ? userAddress : "Adresse invalide"}</span> would
+          like to get access to you, using iExec secured email service
         </p>
       </GrandAccessContainer>
       <StepWrapper>
@@ -201,7 +208,7 @@ const MainCard = () => {
                 <Input
                   name="email"
                   type="email"
-                  label="Email ( private ) "
+                  label="Email Address (secret)"
                   placeholder="john@Doe.com"
                   onChange={changeEmail}
                 />

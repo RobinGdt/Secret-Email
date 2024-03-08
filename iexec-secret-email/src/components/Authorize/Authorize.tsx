@@ -7,7 +7,7 @@ const StyledAuthorize = styled.div`
   /* top: 160px; */
   flex-direction: column;
   align-items: center;
-  gap: 70px;
+  gap: 50px;
   color: var(--white-100);
 `;
 

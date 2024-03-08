@@ -38,7 +38,7 @@ const Wrapper = styled.div`
 `;
 
 const Header = (): JSX.Element => {
-  const { accountId, isConnected, logOut } = useUser();
+  const { accountId, isConnected, logOut, fetchAccounts } = useUser();
 
   return (
     <StyledHeader>
@@ -54,7 +54,7 @@ const Header = (): JSX.Element => {
           </button>
         </Wrapper>
       ) : (
-        <Button title={"Connect Wallet"} />
+        <Button title={"Connect Wallet"} onClick={fetchAccounts} />
       )}
     </StyledHeader>
   );

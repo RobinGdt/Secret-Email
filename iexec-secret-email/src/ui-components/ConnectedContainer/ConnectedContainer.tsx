@@ -17,18 +17,21 @@ const SpanWrapper = styled.div`
   display: flex;
   width: 100px;
   span {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     color: var(--yellow-100);
   }
 `;
 
 const ConnectedButton = ({ accountId }: ConnectedButtonProps): JSX.Element => {
+  const shortenAccountId = (accountId: string | undefined): string => {
+    if (!accountId) return "";
+    const firstPart = accountId.substring(0, 4);
+    const lastPart = accountId.substring(accountId.length - 4);
+    return `${firstPart}...${lastPart}`;
+  };
   return (
     <StyledConnectedButton>
       <SpanWrapper>
-        <span>{accountId}</span>
+        <span>{shortenAccountId(accountId)}</span>
       </SpanWrapper>
       <Identicon />
     </StyledConnectedButton>

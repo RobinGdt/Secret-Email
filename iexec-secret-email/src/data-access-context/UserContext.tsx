@@ -118,13 +118,27 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
       setAccountId(accounts[0]);
       localStorage.setItem("accountId", accounts[0]);
 
+      // Fetching protected emails
+      const result = await dataProtector.fetchProtectedData({
+        owner: accountId, // Assuming the first account is the active one
+      });
+
+      const emails = result.filter(
+        (data) => data.schema && data.schema.email === "string"
+      );
+
       setIsRequestPending(false);
-      setActiveStep(2);
+      setProtectedEmails(emails as never);
+      console.log(emails);
+
+      if (emails.length > 0) {
+        setActiveStep(3); // Redirection to step 3 if at least one protected email is found
+      }
     } catch (error) {
       setIsRequestPending(false);
       console.error(`Error: ${(error as Error)?.message}`);
     }
-  }, []);
+  }, [accountId]);
 
   // PROTECTED DATA SUBMIT
   const protectedDataSubmit = useCallback(
