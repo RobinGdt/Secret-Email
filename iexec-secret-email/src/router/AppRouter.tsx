@@ -1,13 +1,13 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import Authorize from "../components/Authorize/Authorize";
 
 const AppRouter = (): JSX.Element => {
   return (
-    <BrowserRouter basename="/iExec-Technical-Test">
+    <HashRouter basename="/iExec-Technical-Test/#">
       <Routes>
         <Route path="/authorize" element={<Authorize />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
