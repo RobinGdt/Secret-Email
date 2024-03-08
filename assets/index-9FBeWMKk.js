@@ -360,7 +360,7 @@ ${c}
   align-items: center;
   justify-content: center;
   color: var(--white-100);
-`,Authorize=()=>jsxRuntimeExports.jsxs(StyledAuthorize,{children:[jsxRuntimeExports.jsx("h1",{children:"Secret Email Service"}),jsxRuntimeExports.jsx("p",{children:"iExec creates the technologies for individuals and organizations to create, protect and develop their digital estate."}),jsxRuntimeExports.jsx(MainCard,{})]}),AppRouter=()=>jsxRuntimeExports.jsx(BrowserRouter,{basename:"/iExec-Technical-Test",children:jsxRuntimeExports.jsx(Routes,{children:jsxRuntimeExports.jsx(Route,{path:"/authorize",element:jsxRuntimeExports.jsx(Authorize,{})})})});function App(){return jsxRuntimeExports.jsxs("div",{className:"App",children:[jsxRuntimeExports.jsx(Header,{}),jsxRuntimeExports.jsx(AppRouter,{})]})}const styled$1={createGlobalStyle:dt},Typography=styled$1.createGlobalStyle`
+`,Authorize=()=>jsxRuntimeExports.jsxs(StyledAuthorize,{children:[jsxRuntimeExports.jsx("h1",{children:"Secret Email Service"}),jsxRuntimeExports.jsx("p",{children:"iExec creates the technologies for individuals and organizations to create, protect and develop their digital estate."}),jsxRuntimeExports.jsx(MainCard,{})]}),AppRouter=()=>jsxRuntimeExports.jsx(BrowserRouter,{basename:"/iExec-Technical-Test/authorize",children:jsxRuntimeExports.jsx(Routes,{children:jsxRuntimeExports.jsx(Route,{path:"/authorize",element:jsxRuntimeExports.jsx(Authorize,{})})})});function App(){return jsxRuntimeExports.jsxs("div",{className:"App",children:[jsxRuntimeExports.jsx(Header,{}),jsxRuntimeExports.jsx(AppRouter,{})]})}const styled$1={createGlobalStyle:dt},Typography=styled$1.createGlobalStyle`
   html {
     color: var(--black-100);
   }
