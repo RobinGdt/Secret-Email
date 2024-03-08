@@ -87,11 +87,11 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
   const fetchAccounts = useCallback(async () => {
     try {
       if (!window.ethereum) {
+        window.location.href = "https://metamask.io/download";
         throw Error(
           "Please install MetaMask plugin first, visit https://metamask.io/download"
         );
       }
-
       setIsRequestPending(true);
 
       const accounts = await window.ethereum.request({
@@ -118,9 +118,8 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
       setAccountId(accounts[0]);
       localStorage.setItem("accountId", accounts[0]);
 
-      // Fetching protected emails
       const result = await dataProtector.fetchProtectedData({
-        owner: accountId, // Assuming the first account is the active one
+        owner: accounts[0],
       });
 
       const emails = result.filter(
@@ -132,13 +131,15 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
       console.log(emails);
 
       if (emails.length > 0) {
-        setActiveStep(3); // Redirection to step 3 if at least one protected email is found
+        setActiveStep(3);
+      } else {
+        setActiveStep(2);
       }
     } catch (error) {
       setIsRequestPending(false);
       console.error(`Error: ${(error as Error)?.message}`);
     }
-  }, [accountId]);
+  }, []);
 
   // PROTECTED DATA SUBMIT
   const protectedDataSubmit = useCallback(

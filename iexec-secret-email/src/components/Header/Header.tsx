@@ -3,6 +3,7 @@ import Button from "../../ui-components/Button/Button";
 import { useUser } from "../../data-access-context/UserContext";
 import ConnectedButton from "../../ui-components/ConnectedContainer/ConnectedContainer";
 import { LogOut, Logo } from "../../utils/icon";
+import CompagnyFormRequest from "../CompagnyFormRequest/CompagnyFormRequest";
 
 const StyledHeader = styled.div`
   background-color: var(--black-50);
@@ -46,6 +47,7 @@ const Header = (): JSX.Element => {
         <Logo />
         <span>Secret Email</span>
       </LogoWrapper>
+      <CompagnyFormRequest />
       {isConnected ? (
         <Wrapper>
           <ConnectedButton accountId={accountId} />

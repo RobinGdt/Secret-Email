@@ -4,7 +4,6 @@ import MainCard from "../../ui-components/MainCard/MainCard";
 const StyledAuthorize = styled.div`
   display: flex;
   position: relative;
-  /* top: 160px; */
   flex-direction: column;
   align-items: center;
   gap: 50px;

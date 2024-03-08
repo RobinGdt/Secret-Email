@@ -37,7 +37,7 @@ export const createBackgroundStyles = (
     position: absolute;
     inset: 0;
     border-radius: 20px;
-    padding: 1px;
+    padding: 1.5px;
     background: ${backgroundGradient};
     -webkit-mask: ${gradientCode} content-box, ${contentBox};
     mask-composite: exclude;
