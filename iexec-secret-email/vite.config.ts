@@ -4,6 +4,6 @@ import react from "@vitejs/plugin-react";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/iExec-Technical-Test/#",
+  base: "/Secret-Email/#",
   build: { chunkSizeWarningLimit: 1600 },
 });

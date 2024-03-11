@@ -167,6 +167,8 @@ const MainCard = () => {
     }
   }, [userAddress]);
 
+  console.log(protectAddressInput);
+
   return (
     <StyledMainCard>
       <GrandAccessContainer>
